@@ -1,0 +1,25 @@
+{
+  "name": "h5",
+  "version": "1.0.0",
+  "description": "h5 framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PakWoon/h5.git"
+  },
+  "keywords": [
+    "h5"
+  ],
+  "author": "pakwoon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PakWoon/h5/issues"
+  },
+  "homepage": "https://github.com/PakWoon/h5#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
