@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/PakWoon/h5#readme",
   "devDependencies": {
+    "path": "^0.12.7",
     "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1"
   }
 }
