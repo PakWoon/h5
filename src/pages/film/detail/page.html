@@ -1,0 +1,12 @@
+<div class="flim-detail-box">
+	<!-- <p class="p1" v-text="$route.params.id"></p> -->
+	<!-- <p class="p1" v-text="$route.query.a"></p> -->
+	<!-- <p><span v-text="componentName"></span><button @click="changeSelf">changeSelf</button></p> -->
+	<!-- <p>父级数据调用：this.$root.name，例如我的名字是{{this.$root.name}}<button @click="changeName()">更改父级参数</button></p> -->
+	<button @click="toggleShow">点我点我toggleShow～～～</button>
+	<button @click="toggleShow2">点我点我toggleShow2～～～</button>
+	<p class="p1" v-show="show">改用scss了可以吗？--可以</p>
+	<!-- <button @click="$root.linkFun('FilmIndex')">跳转到/film/index</button> -->
+	<!-- <p v-text="filmDetail.filmId"></p> -->
+	<p v-text="filmDetail.filmName"></p>
+</div>

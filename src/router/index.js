@@ -1,8 +1,16 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter)
 
-Vue.use(Router)
+import FilmIndex from '../pages/film/index'
+import FilmDetail from '../pages/film/detail'
 
-export default new Router({
-    routes: []
+// const FilmIndex = { template: '<div>FilmIndex///</div>' }
+// const FilmDetail = { template: '<div>FilmDetail///</div>' }
+
+export default new VueRouter({
+    routes: [
+    	{ path: '/film/index', name: 'FilmIndex', component: FilmIndex },
+    	{ path: '/film/detail', name: 'FilmDetail', component: FilmDetail },
+    ]
 })

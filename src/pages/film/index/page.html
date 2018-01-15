@@ -1,0 +1,15 @@
+
+<div>
+	
+	<header-bar></header-bar>
+	<div class="flim-index-box">
+		<p v-text="componentName"></p>
+		<p>hello, i am a vue component demo</p>
+		<!-- <button @click="show">show $router params</button> -->
+		<ul>
+			<li v-for="(item,index) in hotFilmList" @click="gotoDetail(item)">
+				<span v-text="item.filmName"></span>
+			</li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,199 @@
+// $url: "//30.30.89.231";
+$url: "https://cdn.yuekeyun.com";
+
+$remBase: 75px;
+// $mul: $remBase / 20px;  // 之前计算是20px为基准
+
+@function px2rem($px, $base-font-size: $remBase) {
+    @if (unitless($px)) {
+        // unitless 返回这个数是否没有单位
+        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you 1";
+        @return px2rem($px + 0px, $base-font-size); // That may fail.
+    } 
+    @else if (unit($px) == rem) { 
+        // unit 得到这个数的单位
+        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you 2";
+        @return $px;
+    } 
+    @else if ($px == 1px) {
+        // 如果是1px的border即px2rem(1), 因为 0.02667rem * 36(部分手机的html的基础font-size大小) = 0.96012px (小于1px不会显示),所以直接返回 1/36=0.02778rem
+        @return 0.02778rem; // 安卓机页面宽度最小是360dp，所以html的font-size最小是36px，1/36=0.02778rem，https://material.io/devices机型尺寸
+    } 
+    @else if ($px == 2px) {
+        // 如果是1px的border即px2rem(1), 因为 0.02667rem * 36(部分手机的html的基础font-size大小) = 0.96012px (小于1px不会显示),所以直接返回 1/36=0.02778rem
+        @return 0.05556rem; // 安卓机页面宽度最小是360dp，所以html的font-size最小是36px，1/36=0.02778rem，https://material.io/devices机型尺寸
+    } 
+    @else if (unit($px) == px) {
+        @return ($px / $base-font-size) * 1rem * 2; // @2---两倍稿
+    }
+} 
+
+/* ********************************* 规范颜色 ******************************************** */
+
+// $C1: #FE9700; // APP主色，主要按钮色
+// $C2: #DE8400; // 按钮点击效果active颜色
+$C1: #E94D3D; // APP主色，主要按钮色(云售票)
+$C2: #C63627; // 按钮点击效果active颜色(云售票)
+$C3: #F4333C; // 红色：价钱色、重点提示文字颜色、失败状态色
+$C4: #FF5353; // 浅红色：活动标签颜色、标签文字颜色
+$C5: #29B6F6; // 蓝色（艳）：服务标签颜色、影院特色标签颜色
+$C6: #4DA3FC; // 蓝色（沉）：充值价钱按钮颜色、出票状态颜色、选择空间颜色、文字链接颜色、预售按钮颜色
+$C7: #0ED17B; // 绿色：成功状态色
+$C8: #969EBE; // 想看按钮色、影片版本色
+$C9: #B96E00; // 按钮边框
+$T1: #333333; // 主要文字颜色，用于大标题以及主要说明文字
+$T2: #808080; // 次要文字颜色
+$T3: #B4B4B4; // 次要按钮颜色
+$T4: #FFFFFF; // 白色
+$B1: #FAFAFA; // 选择优惠页优惠卡片背景色
+$B2: #F5F5F5; // app背景色，分类栏底色、输入框底色
+$B3: #E2E2E2; // 间隔线颜色
+$B4: rgba(0, 0, 0, .5); // 50%透明度 ，弹窗底色
+// $Alert: #FEE1E2; // alert底色 剩余xx分钟的底色
+$Alert: #FFF3F4; // alert底色 剩余xx分钟的底色--浅红
+$Alert_2: #FCF4E1; // alert底色 剩余xx分钟的底色--浅黄
+
+// 橙色
+$O1: #FFAB00;
+$O2: #E48400;
+
+/* ********************************* 自定义方便使用 ******************************************** */
+
+$star: #FFB900;
+$gold: #F6B70E;
+$green: #0ED17B; // c7
+$blue: #4DA3FC; // c6
+.green {
+    color: $green;
+}
+.blue {
+    color: $blue;
+}
+.red {
+	color: $C3;
+}
+
+
+/* ********************************* 规范字体大小 ******************************************** */
+
+$Z0: px2rem(40); //40px;
+$Z1: px2rem(24); //24px;
+$Z2: px2rem(20); //20px;
+$Z3: px2rem(18); //18px;
+$Z3_5: px2rem(17);//17px;
+$Z4: px2rem(16); //16px;
+$Z5: px2rem(15); //15px;
+$Z6: px2rem(14); //14px;
+$Z7: px2rem(12); //12px;
+$Z8: px2rem(10); //10px;
+$Z9: px2rem(8); //8px;
+/* ********************************* 规范数字大小 ******************************************** */
+
+$N1: px2rem(26); //26px;
+$N2: px2rem(24); //24px;
+$N3: px2rem(20); //20px;
+$N4: px2rem(17); //17px;
+$N5: px2rem(15); //15px;
+$N6: px2rem(14); //14px;
+$N7: px2rem(12); //12px;
+$N8: px2rem(10); //10px;
+
+/* ********************************* 规范边距大小 ******************************************** */
+
+$PA1: px2rem(16); //16px;
+$PA2: px2rem(14); //14px;
+$PA3: px2rem(12); //12px;
+$PB0: px2rem(8); //8px;
+$PB1: px2rem(10); //10px;
+$PB2: px2rem(6); //6px;
+$PB3: px2rem(4); //4px;
+
+$empty1: $url+"/common/static/img/h5ecticket/empty_1.png";
+$empty2: $url+"/common/static/img/h5ecticket/empty_2.png";
+$empty3: $url+"/common/static/img/h5ecticket/empty_3.png";
+$empty4: $url+"/common/static/img/h5ecticket/empty_4.png";
+$postop: $url+"/common/static/img/h5ecticket/shop-pos-bg.svg";
+$cardtop: $url+"/common/static/img/h5ecticket/shop-card-bg.svg";
+$card-type-V: $url+"/common/static/img/h5ecticket/member_card_red_orange_2.9.png";
+$card-type-A: $url+"/common/static/img/h5ecticket/member_card_purple_2.9.png";
+$card-type-G: $url+"/common/static/img/h5ecticket/member_card_green_2.9.png";
+$card-type-T: $url+"/common/static/img/h5ecticket/member_card_orange_2.9.png";
+$card-type-P: $url+"/common/static/img/h5ecticket/member_card_blue_2.9.png";
+
+$card-disabled: $url+"/common/static/img/h5lark/member_card_disabled.png";
+
+$n_model: $url+"/common/static/img/h5lark/Seats/n_model.png";
+$s_model: $url+"/common/static/img/h5lark/Seats/s.png";
+$sold_model: $url+"/common/static/img/h5lark/Seats/sold.png";
+$bestView_model: $url+"/common/static/img/h5lark/Seats/bestView.png";
+$seat_n: $url+"/common/static/img/h5lark/Seats/n.png";
+$seat_n1: $url+"/common/static/img/h5lark/Seats/n1.png";
+$seat_n2: $url+"/common/static/img/h5lark/Seats/n2.png";
+$seat_n3: $url+"/common/static/img/h5lark/Seats/n3.png";
+$seat_n4: $url+"/common/static/img/h5lark/Seats/n4.png";
+$seat_n5: $url+"/common/static/img/h5lark/Seats/n5.png";
+$seat_n6: $url+"/common/static/img/h5lark/Seats/n6.png";
+$seat_n7: $url+"/common/static/img/h5lark/Seats/n7.png";
+$seat_n8: $url+"/common/static/img/h5lark/Seats/n8.png";
+$seat_n9: $url+"/common/static/img/h5lark/Seats/n9.png";
+$seat_s1: $url+"/common/static/img/h5lark/Seats/s1.png";
+$seat_s2: $url+"/common/static/img/h5lark/Seats/s2.png";
+$seat_s3: $url+"/common/static/img/h5lark/Seats/s3.png";
+$seat_s4: $url+"/common/static/img/h5lark/Seats/s4.png";
+$seat_s5: $url+"/common/static/img/h5lark/Seats/s5.png";
+$seat_s6: $url+"/common/static/img/h5lark/Seats/s6.png";
+$seat_s7: $url+"/common/static/img/h5lark/Seats/s7.png";
+$seat_s8: $url+"/common/static/img/h5lark/Seats/s8.png";
+$seat_s9: $url+"/common/static/img/h5lark/Seats/s9.png";
+// 订单类型
+$order_ticket: $url+"/common/static/img/h5ecticket/iconPic/order_ticket.svg";
+$order_ticket_gray: $url+"/common/static/img/h5ecticket/iconPic/order_ticket_gray.svg";
+$order_goods: $url+"/common/static/img/h5ecticket/iconPic/order_goods.svg";
+$order_goods_gray: $url+"/common/static/img/h5ecticket/iconPic/order_goods_gray.svg";
+$order_card: $url+"/common/static/img/h5lark/order_card.svg";
+// 订单状态
+$WAIT_GOODS: $url+"/common/static/img/h5lark/WAIT_GOODS.svg";
+$WAIT_TICKET: $url+"/common/static/img/h5lark/WAIT_TICKET.svg";
+$TICKET_SUCCESS: $url+"/common/static/img/h5lark/TICKET_SUCCESS.svg";
+$TICKET_REFUND_FAILED: $url+"/common/static/img/h5lark/TICKET_REFUND_FAILED.svg";
+$TICKET_REFUNDING: $url+"/common/static/img/h5lark/TICKET_REFUNDING.svg";
+$REFUNDING: $url+"/common/static/img/h5lark/REFUNDING.svg";
+$REFUND_FAILED: $url+"/common/static/img/h5lark/REFUND_FAILED.svg";
+$REFUND_FINISHED: $url+"/common/static/img/h5lark/REFUND_FINISHED.svg";
+$PAY_SUCCESS: $url+"/common/static/img/h5lark/PAY_SUCCESS.svg";
+$PAY_FAILED: $url+"/common/static/img/h5lark/PAY_FAILED.svg";
+$WAIT_PAY: $url+"/common/static/img/h5lark/WAIT_PAY.svg";
+// 充值成功
+$RECHARGE_SUCCESS: $url+"/common/static/img/h5lark/RECHARGE_SUCCESS.png";
+// 会员卡状态
+$card_expiring: $url+"/common/static/img/h5lark/card_expiring.png";
+$card_not_active: $url+"/common/static/img/h5lark/card_not_active.png";
+$card_freeze: $url+"/common/static/img/h5lark/card_freeze.png";
+$card_expired: $url+"/common/static/img/h5lark/card_expired.png";
+$card_canceled: $url+"/common/static/img/h5lark/card_canceled.png";
+$card_report: $url+"/common/static/img/h5lark/card_report.png";
+
+// 优惠券
+$coupon_1: $url+"/common/static/img/h5lark/coupon_1.png";
+$coupon_2: $url+"/common/static/img/h5lark/coupon_2.png";
+$coupon_3: $url+"/common/static/img/h5lark/coupon_3.png";
+$coupon_4: $url+"/common/static/img/h5lark/coupon_4.png";
+$coupon_new: $url+"/common/static/img/h5lark/coupon_new.png";
+
+// 赠礼
+$zengli_pic: $url+"/common/static/img/h5lark/zengli_orange.png"; // 充值页
+$zengli_white: $url+"/common/static/img/h5lark/zengli_white.svg"; // 开卡-卡政策
+
+// 商城
+$pos_fire: $url+"/common/static/img/h5lark/pos_fire.png";
+$pos_crown: $url+"/common/static/img/h5lark/pos_crown.png";
+
+// 待售会员卡没有更多
+$sell_nomore: $url+"/common/static/img/h5lark/sell_nomore.png";
+
+
+
+
+
+
+
